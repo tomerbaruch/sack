@@ -5,7 +5,7 @@ SynthDef(\sine, {|outBus=0,amp=0.5,freq=0.5,dur=0.5,att=0.0,rel=0.0,pan=0.5|
 	var panning=pan.linlin(0.0,1,-1.0,1.0);
 	var env=EnvGen.kr(Env.linen(attack, dur-attack-release, release),doneAction:2);
 	var signal=SinOsc.ar(frequency);
-	Out.ar(outBus, Pan2.ar(signal*env*amp,pan));
+	Out.ar(outBus, Pan2.ar(signal*env*amp,panning));
 
 });_
 
@@ -16,7 +16,7 @@ SynthDef(\pp, {|outBus=0,amp=0.5,freq=0.5,dur=0.5,att=0.0,rel=0.0,pan=0.5|
 	var panning=pan.linlin(0.0,1,-1.0,1.0);
 	var env=EnvGen.kr(Env.linen(attack, dur-attack-release, release),doneAction:2);
 	var signal=Saw.ar(frequency);
-	Out.ar(outBus, Pan2.ar(signal*env*amp,pan));
+	Out.ar(outBus, Pan2.ar(signal*env*amp,panning));
 
 });_
 
